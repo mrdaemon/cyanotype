@@ -1,6 +1,12 @@
 from flask import render_template
 from cyanotype import app, flatpages
 
+@app.template_filter('excerpt')
+def excerpt_filter(text):
+    """ Template filter that extracts the first paragraph """
+    paragraphs = text.split('</p>')
+    return paragraphs[0]
+
 @app.route('/')
 def home_index():
     return "Cyanotype"
