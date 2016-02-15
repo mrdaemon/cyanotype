@@ -9,7 +9,7 @@ def excerpt_filter(text):
 
 @app.route('/')
 def home_index():
-    return "Cyanotype"
+    return render_template('home.html')
 
 @app.route('/posts/')
 def get_posts():
