@@ -1,6 +1,18 @@
-{% for post in posts %}
-    <a href="{{ url_for('get_post', name=post.path) }}">
-        {{ post.title }}
-    </a>
-    <small>{{ post.date }}</small>
-{%endfor %}
+{% extends "base.html" %}
+{% block title %}Posts on this blog{% endblock %}
+
+{% block content %}
+    <div class="row medium-8 large-7 columns">
+        {% for post in posts %}
+            <div class="blog-post">
+                <h3>{{ post.title }} <small>{{ post.date }}</small></h3>
+            </div>
+            {{ post.html | excerpt | safe }}
+            <div class="callout">
+                <ul class="menu simple">
+                    <li><a href="{{ url_for('get_post', name=post.path)}}">Read More</a></li>
+                </ul>
+            </div>
+        {%endfor %}
+    </div>
+{% endblock %}
