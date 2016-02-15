@@ -1,0 +1,50 @@
+{#
+    Main layout template
+
+    Every other template should inherit from this one, changing or extending
+    blocks as required.
+#}
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Cyanotype{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.min.css')}}">
+    <!-- bonus head stuff -->
+    {% block extrahead %}{% endblock %}
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="top-bar-right">
+            <ul class="menu">
+                <li><a href="{{ url_for('home_index')}}">home</a></li>
+                <li><a href="{{ url_for('get_posts')}}">posts</a></li>
+                <li><a href="#">foo</a></li>
+                <li><a href="#">bar</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="callout large primary">
+        <div class="row column text-center">
+            <h1>The Page!</h1>
+            <h2 class="subheader">Some super gr8 tagline</h2>
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    {% block scripts %}
+    <script src="{{ url_for('static', filename='js/vendor/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/foundation.js')}}"></script>
+    {% block extrascripts %}
+    {% endblock %}
+    <script>
+        $(document).foundation();
+    </script>
+    {% endblock %}
+
+</body>
