@@ -13,6 +13,12 @@
                     <li><a href="{{ url_for('get_post', name=post.path)}}">Read More</a></li>
                 </ul>
             </div>
+        {% else %}
+            <ul class="callout">
+                <ul class="menu simple">
+                    <li>There are no posts to display at this time.</li>
+                </ul>
+            </ul>
         {%endfor %}
     </div>
 {% endblock %}
