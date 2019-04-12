@@ -57,7 +57,7 @@ if __name__ == '__main__':
         if os.environ.has_key('CYANOTYPE_CONFIGURATION'):
             print "Warning! Overriding environment value for config file!"
 
-        os.environ['CYANOTYPE_CONFIGURATION'] = sys.argv[2]
+        os.environ['CYANOTYPE_CONFIGURATION'] = os.path.abspath(sys.argv[2])
 
     else:
         usage()
