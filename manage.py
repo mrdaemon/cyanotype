@@ -36,8 +36,6 @@ def run():
     print "INIT: using configuration file %s" %\
             (os.environ["CYANOTYPE_CONFIGURATION"])
 
-    print "Connect to http://127.0.0.1:5000 to access."
-
     from cyanotype import app
     app.run(debug=True)
 
